@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Список фильмов{% endblock %}
+
+{% block content %}
+<div class="bg-white p-5 rounded shadow-sm">
+    <h2 class="text-center mb-4">Список фильмов</h2>
+    {% if films %}
+        <div class="list-group">
+            {% for film in films %}
+                <div class="list-group-item mb-3 p-3 border rounded">
+                    <h5 class="mb-2 font-weight-bold">{{ film.title }}</h5>
+                    <p><strong>Описание:</strong> {{ film.description }}</p>
+                    <p><strong>Отзыв:</strong> {{ film.review }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-muted">Фильмы отсутствуют.</p>
+    {% endif %}
+</div>
+{% endblock %}
